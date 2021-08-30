@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+
+  
+<input type="text" id="input"> 
+<button onclick="Add()">Add</button>
+<ul id="list"></ul>
+
+<script>
+
+function Add(){
+
+if(document.querySelector("#editing")){
+  editing.innerText = input.value;
+  document.querySelector("#editing").removeAttribute("id");
+}else{
+  var li = document.createElement("li");
+  var span = document.createElement("span");
+  var editBtn = document.createElement("button");
+  editBtn.innerText = "edit";
+ var deleteBtn = document.createElement("button");
+ deleteBtn.innerText = "delete";
+  list.appendChild(li);
+  li.appendChild(span);
+  li.appendChild(editBtn);
+  li.appendChild(deleteBtn);
+  span.innerText = input.value;
+
+editBtn.onclick = function(){
+   var span = this.previousSibling;
+   span.id = "editing";
+   input.value = span.innerText;
+} 
+// editing end
+
+deleteBtn.onclick = function(){
+  this.parentNode.remove();
+}
+
+
+
+}
+
+ 
+input.value = "";
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
